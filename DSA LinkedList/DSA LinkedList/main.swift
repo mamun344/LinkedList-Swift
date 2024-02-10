@@ -446,9 +446,6 @@ block("Challenge: Reverse (by Alter Direction)") {
 }
 
 block("Challenge: Merge two Lists") {
-    
-//    var list1 = LinkedList<Int>.init(values2: 3, 5, 7)
-      
     var list1 = LinkedList<Int>()
     list1.push(19)
     list1.push(17)
@@ -506,5 +503,49 @@ block("Challenge: Merge two Lists") {
     print(mergedList, mergedList.head?.value, mergedList.tail?.value)
 }
 
+
+block("Challenge: Remove Duplicates") {
+    var list = LinkedList<Int>()
+    list.push(15)
+    list.push(15)
+    list.push(13)
+    list.push(11)
+    list.push(9)
+    list.push(7)
+    list.push(5)
+    list.push(3)
+    list.push(3)
+    list.push(1)
+    list.push(1)
+    list.push(1)
+
+    print(list)
+    
+    let removeValue = 1
+    
+    var prev: Node<Int>? = nil
+    var current = list.head
+    
+    while current != nil {
+        if current!.value == removeValue {
+            if prev == nil {
+                list.head = current?.next
+            }
+            else {
+                prev?.next = current?.next
+            }
+        }
+        else {
+            prev = current
+        }
+        
+        current = current?.next
+    }
+    
+    list.tail = prev
+    
+    print(list, list.head?.value, list.tail?.value)
+
+}
 
 
